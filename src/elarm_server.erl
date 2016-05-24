@@ -367,7 +367,9 @@ create_alarm_rec(AlarmId, Src, AddInfo, Cfg) ->
 
 new_event_id() ->
     %% TODO: Fix this to something better
-    erlang:now().
+    %% erlang:now().
+    {ok, Id} = flake_server:id(62),
+    Id.
 
 get_alarm_type(#alarm_config{ alarm_type = Type }) ->
     Type.
